@@ -1,11 +1,17 @@
 class Sensor {
     constructor(id) {
         this.id = id;
-        this.powerStatus = 'off'
+        this.powerStatus = 'off';
+        this.status = 'idle';
+        this.reportingInterval = 10000;
     }
 
-    turn(on) {
-        return this.powerStatus = on
+    turn(set) {
+        if(this.powerStatus === set){
+            throw Error()
+        } else {
+            return this.powerStatus = set;
+        }
     }
 
 }
