@@ -22,6 +22,9 @@ class Sensor {
             this.status = 'sensingDistance';
             setTimeout(() => {
                 this.status = 'reportingData';
+                setTimeout(() => {
+                    this.status = 'idle';   
+                },1000)
             }, 500)
         },10000)
     }
