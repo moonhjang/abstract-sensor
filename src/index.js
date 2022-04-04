@@ -29,10 +29,32 @@ class Sensor {
         },10000)
     }
 
+    update() {
+        return this.reportingInterval = 3000;
+    }
+
 }
 
 
-class IotServer {}
+class IotServer extends Sensor {
+    constructor(){
+        super()
+    }
+
+    start([sensor]) {
+        console.log([sensor])
+        return [sensor];
+
+    }
+  
+    publish({deviceId, actionId, payload}) {
+        if (actionId === 'CHANGE_REPORTING_INTERVAL'){
+            return this.update()
+
+        }
+    }
+}
+
 
 module.exports = {
     Sensor,
