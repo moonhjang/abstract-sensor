@@ -91,7 +91,7 @@ describe('Sensor 요구사항 테스트', () => {
     test('CHANGE_REPORTING_INTERVAL 액션이 발생하면 기기에 설정되어 있던 reportingInterval 값을 전달 받은 값으로 교체해야 한다.', () => {
         const sensor = new Sensor('id1');
         expect(sensor.reportingInterval).toEqual(10000);
-
+        
         sensor.turn('on');
 
         const server = new IotServer();
@@ -102,7 +102,9 @@ describe('Sensor 요구사항 테스트', () => {
             actionId: 'CHANGE_REPORTING_INTERVAL',
             payload: 3000,
         });
+        
         expect(sensor.reportingInterval).toEqual(3000);
+
     });
 
     test('기기가 꺼지면 기기는 서버로 부터 어떠한 이벤트도 수신할 수 없다.', () => {
